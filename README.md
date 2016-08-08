@@ -6,6 +6,10 @@ line-bot-sdk-nodejs
 
 SDK of the LINE BOT API for Node.js
 
+This fork makes outbound connection go through a proxy.
+In this case, the proxy server is taken from Heroku enviroment variable FIXIE_URL.
+To change it, go to /lib/client.js
+
 Installation
 --
 
@@ -175,7 +179,7 @@ client
   .getUserProfile(['<target mid>'])
   .then(function(res) {
     var contacts = res.body.contacts;
-    
+
     client.sendText(contacts[0].mid, 'Hello, ' + contacts[0].displayName);
   });
 ```
